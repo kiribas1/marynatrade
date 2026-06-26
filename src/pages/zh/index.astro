@@ -3,46 +3,89 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout
-  title="MarynaTrade - 国际贸易、进出口与全球商务指南"
-  description="全面的国际贸易指南，涵盖进出口流程、供应链管理、贸易融资、全球物流及海关法规。"
+  title="Maryna-Trade | 交易与投资基础设施 - 市场准入与执行"
+  description="Maryna-Trade提供交易与投资基础设施、市场准入、执行和结构化机会。在基里巴斯共和国注册。"
   lang="zh"
 >
-  <Fragment slot="logo">MarynaTrade</Fragment>
-  <Fragment slot="footer-name">MarynaTrade</Fragment>
+  <Fragment slot="logo">Maryna-Trade</Fragment>
+  <Fragment slot="footer-name">Maryna-Trade – 在基里巴斯共和国注册</Fragment>
 
   <section class="hero">
-    <h1>国际贸易与全球商务中心</h1>
-    <p>您值得信赖的进出口指南、供应链策略、贸易融资方案以及全球海关与关税导航资源。</p>
+    <img src="/images/marynatrade-banner.webp" alt="Maryna-Trade - 交易与投资基础设施" class="hero-logo" width="280" height="280" />
+    <h1>Maryna-Trade</h1>
+    <p class="tagline">交易与投资基础设施</p>
+    <p>市场准入 · 执行 · 结构化机会</p>
   </section>
 
   <div class="ad-slot">广告位 - Google AdSense</div>
 
   <div class="card-grid">
     <article class="card">
-      <h2>进出口指南</h2>
-      <p>跨境货物进出口的分步操作流程。了解贸易单证、国际贸易术语（Incoterms）、信用证以及成功完成国际交易所需的合规要求。</p>
+      <h2>投资</h2>
+      <p>MarynaTrade通过结构化市场准入和运营工作流程支持投资相关活动。战略市场敞口、结构化投资机会和跨市场配置支持。</p>
     </article>
     <article class="card">
-      <h2>供应链管理</h2>
-      <p>运用成熟的采购、物资管理、库存控制和供应商关系策略优化您的全球供应链。降低成本，缩短国际市场交付时间。</p>
+      <h2>交易</h2>
+      <p>市场执行支持、交易结构化和运营协调。服务因司法管辖区和客户概况而异，以确保合规和最优结果。</p>
     </article>
     <article class="card">
-      <h2>贸易融资方案</h2>
-      <p>探索贸易融资工具，包括信用证、银行保函、出口信用保险和保理业务。为跨境交易获取资金并降低风险。</p>
+      <h2>市场</h2>
+      <p>涵盖全球宏观环境、外汇和衍生品、股票指数和数字资产。按司法管辖区对特定资产类别实行有条件可用性。</p>
     </article>
     <article class="card">
-      <h2>全球物流</h2>
-      <p>掌握国际货运代理、航运路线、仓储及最后一公里配送。比较海运、空运、铁路和多式联运方案，实现高效的全球配送。</p>
+      <h2>运营原则</h2>
+      <p>明确的范围、结构化运营、风险意识、透明度和合规导向的方法指导所有活动和客户关系。</p>
     </article>
     <article class="card">
-      <h2>海关与关税</h2>
-      <p>及时了解海关法规、关税税率表、HS编码、关税计算及自由贸易协定。通过正确的商品归类和原产地规则确保合规并最大限度减少关税。</p>
+      <h2>结构化机会</h2>
+      <p>为寻求多元化市场敞口的机构和合格参与者提供结构化投资产品和定制执行解决方案。</p>
     </article>
     <article class="card">
-      <h2>市场进入策略</h2>
-      <p>研究并规划您向新国际市场的拓展。分析贸易壁垒、监管环境、文化因素和合作机会，实现成功的全球化增长。</p>
+      <h2>风险意识</h2>
+      <p>我们不提供个人理财建议。所有活动均在风险意识、监管合规和透明披露的框架内进行。</p>
     </article>
   </div>
 
   <div class="ad-slot">广告位 - Google AdSense</div>
+
+  <section class="registration-info">
+    <h2>注册与法律信息</h2>
+    <p><strong>注册号：</strong> CP-000026</p>
+    <p><strong>许可证号：</strong> KBN-80-000002</p>
+    <p><strong>注册办公室：</strong> Central Park, Tarawa, 基里巴斯共和国</p>
+    <p><strong>地址：</strong> Malecon, Manzanillo, 古巴</p>
+  </section>
+
+  <div class="ad-slot">广告位 - Google AdSense</div>
 </BaseLayout>
+
+<style>
+  .hero-logo {
+    border-radius: 50%;
+    margin-bottom: 20px;
+    background: white;
+    padding: 10px;
+  }
+  .tagline {
+    font-size: 1.4rem;
+    font-weight: 600;
+    opacity: 1;
+    margin-bottom: 8px;
+  }
+  .registration-info {
+    background: white;
+    border-radius: 8px;
+    padding: 32px;
+    margin-top: 32px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    text-align: center;
+  }
+  .registration-info h2 {
+    margin-bottom: 16px;
+    color: #1a1a2e;
+  }
+  .registration-info p {
+    margin: 6px 0;
+    color: #555;
+  }
+</style>

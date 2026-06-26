@@ -3,46 +3,89 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout
-  title="MarynaTrade - Comercio Internacional, Importación/Exportación y Comercio Global"
-  description="Guía completa de comercio internacional, procedimientos de importación y exportación, gestión de cadena de suministro, financiamiento comercial, logística global y regulaciones aduaneras."
+  title="Maryna-Trade | Infraestructura de Trading e Inversión - Acceso a Mercados"
+  description="Maryna-Trade ofrece infraestructura de trading e inversión, acceso a mercados, ejecución y oportunidades estructuradas. Registrada en la República de Kiribati."
   lang="es"
 >
-  <Fragment slot="logo">MarynaTrade</Fragment>
-  <Fragment slot="footer-name">MarynaTrade</Fragment>
+  <Fragment slot="logo">Maryna-Trade</Fragment>
+  <Fragment slot="footer-name">Maryna-Trade – Registrada en la República de Kiribati</Fragment>
 
   <section class="hero">
-    <h1>Centro de Comercio Internacional y Comercio Global</h1>
-    <p>Tu recurso de confianza para guías de importación y exportación, estrategias de cadena de suministro, soluciones de financiamiento comercial y navegación de aduanas y aranceles en todo el mundo.</p>
+    <img src="/images/marynatrade-banner.webp" alt="Maryna-Trade - Infraestructura de Trading e Inversión" class="hero-logo" width="280" height="280" />
+    <h1>Maryna-Trade</h1>
+    <p class="tagline">Infraestructura de Trading e Inversión</p>
+    <p>Acceso a Mercados · Ejecución · Oportunidades Estructuradas</p>
   </section>
 
   <div class="ad-slot">Espacio Publicitario - Google AdSense</div>
 
   <div class="card-grid">
     <article class="card">
-      <h2>Guía de Importación y Exportación</h2>
-      <p>Procedimientos paso a paso para importar y exportar mercancías. Aprende sobre documentación comercial, Incoterms, cartas de crédito y requisitos de cumplimiento para transacciones internacionales exitosas.</p>
+      <h2>Inversiones</h2>
+      <p>MarynaTrade apoya actividades de inversión a través de acceso estructurado al mercado y flujos de trabajo operativos. Exposición estratégica al mercado, oportunidades de inversión estructuradas y soporte de asignación entre mercados.</p>
     </article>
     <article class="card">
-      <h2>Gestión de Cadena de Suministro</h2>
-      <p>Optimiza tu cadena de suministro global con estrategias comprobadas de abastecimiento, adquisiciones, gestión de inventario y relaciones con proveedores. Reduce costos y mejora los tiempos de entrega.</p>
+      <h2>Trading</h2>
+      <p>Soporte de ejecución de mercado, estructuración de operaciones y coordinación operativa. Los servicios varían según la jurisdicción y el perfil del cliente.</p>
     </article>
     <article class="card">
-      <h2>Financiamiento Comercial</h2>
-      <p>Explora instrumentos de financiamiento comercial: cartas de crédito, garantías bancarias, seguros de crédito a la exportación y factoraje. Asegura financiación y mitiga riesgos en transacciones transfronterizas.</p>
+      <h2>Mercados</h2>
+      <p>Cobertura en entornos macro globales, FX y derivados, índices de renta variable y activos digitales. Disponibilidad condicional aplica a clases de activos seleccionadas por jurisdicción.</p>
     </article>
     <article class="card">
-      <h2>Logística Global</h2>
-      <p>Navega el transporte internacional de carga, rutas marítimas, almacenamiento y entrega de última milla. Compara opciones de transporte marítimo, aéreo, ferroviario y multimodal para una distribución eficiente.</p>
+      <h2>Principios Operativos</h2>
+      <p>Alcance claro, operaciones estructuradas, conciencia de riesgo, transparencia y enfoque orientado al cumplimiento guían todas las actividades y relaciones con clientes.</p>
     </article>
     <article class="card">
-      <h2>Aduanas y Aranceles</h2>
-      <p>Mantente al día con regulaciones aduaneras, tablas arancelarias, códigos SA, cálculos de derechos y tratados de libre comercio. Asegura el cumplimiento y minimiza aranceles con clasificación adecuada.</p>
+      <h2>Oportunidades Estructuradas</h2>
+      <p>Acceso a productos de inversión estructurados y soluciones de ejecución personalizadas diseñadas para participantes institucionales y cualificados.</p>
     </article>
     <article class="card">
-      <h2>Estrategias de Entrada al Mercado</h2>
-      <p>Investiga y planifica tu expansión a nuevos mercados internacionales. Analiza barreras comerciales, entornos regulatorios, consideraciones culturales y oportunidades de asociación para un crecimiento global exitoso.</p>
+      <h2>Conciencia de Riesgo</h2>
+      <p>No proporcionamos asesoramiento financiero personal. Todas las actividades se realizan dentro de un marco de conciencia de riesgo, cumplimiento regulatorio y divulgación transparente.</p>
     </article>
   </div>
 
   <div class="ad-slot">Espacio Publicitario - Google AdSense</div>
+
+  <section class="registration-info">
+    <h2>Registro y Legal</h2>
+    <p><strong>Número de Registro:</strong> CP-000026</p>
+    <p><strong>Número de Licencia:</strong> KBN-80-000002</p>
+    <p><strong>Oficina Registrada:</strong> Central Park, Tarawa, República de Kiribati</p>
+    <p><strong>Dirección:</strong> Malecón, Manzanillo, Cuba</p>
+  </section>
+
+  <div class="ad-slot">Espacio Publicitario - Google AdSense</div>
 </BaseLayout>
+
+<style>
+  .hero-logo {
+    border-radius: 50%;
+    margin-bottom: 20px;
+    background: white;
+    padding: 10px;
+  }
+  .tagline {
+    font-size: 1.4rem;
+    font-weight: 600;
+    opacity: 1;
+    margin-bottom: 8px;
+  }
+  .registration-info {
+    background: white;
+    border-radius: 8px;
+    padding: 32px;
+    margin-top: 32px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    text-align: center;
+  }
+  .registration-info h2 {
+    margin-bottom: 16px;
+    color: #1a1a2e;
+  }
+  .registration-info p {
+    margin: 6px 0;
+    color: #555;
+  }
+</style>
