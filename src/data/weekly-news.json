@@ -1,0 +1,102 @@
+[
+  {
+    "id": 1,
+    "date": "2026-06-29",
+    "en": { "title": "BRICS Nations Expand Cross-Border Payment System", "summary": "The BRICS bloc announced further integration of its cross-border settlement framework, enabling faster trade settlements between member nations and reducing reliance on traditional SWIFT channels." },
+    "es": { "title": "Naciones BRICS Amplian Sistema de Pagos Transfronterizos", "summary": "El bloque BRICS anuncio una mayor integracion de su marco de liquidacion transfronteriza, permitiendo liquidaciones comerciales mas rapidas entre naciones miembros." },
+    "zh": { "title": "金砖国家扩大跨境支付系统", "summary": "金砖国家集团宣布进一步整合其跨境结算框架，实现成员国之间更快的贸易结算，减少对传统SWIFT渠道的依赖。" },
+    "ru": { "title": "Страны БРИКС расширяют систему трансграничных платежей", "summary": "Блок БРИКС объявил о дальнейшей интеграции системы трансграничных расчётов, ускоряя торговые расчёты между странами-участницами." },
+    "pt": { "title": "Nacoes BRICS Expandem Sistema de Pagamentos Transfronteiricos", "summary": "O bloco BRICS anunciou maior integracao de seu sistema de liquidacao transfronteirica, permitindo liquidacoes comerciais mais rapidas entre nacoes membros." },
+    "ar": { "title": "دول بريكس توسع نظام المدفوعات العابرة للحدود", "summary": "أعلن تكتل بريكس عن مزيد من التكامل في إطار التسوية عبر الحدود، مما يتيح تسويات تجارية أسرع بين الدول الأعضاء." }
+  },
+  {
+    "id": 2,
+    "date": "2026-06-28",
+    "en": { "title": "EUR/USD Volatility Surges Amid ECB Policy Divergence", "summary": "The euro-dollar pair experienced heightened volatility as the European Central Bank signaled a more dovish stance while the Federal Reserve maintained its current rate trajectory." },
+    "es": { "title": "La Volatilidad EUR/USD Aumenta por Divergencia del BCE", "summary": "El par euro-dolar experimento una mayor volatilidad mientras el BCE senalo una postura mas acomodaticia y la Reserva Federal mantuvo su trayectoria actual de tasas." },
+    "zh": { "title": "欧元/美元波动性因欧央行政策分化而飙升", "summary": "欧元兑美元汇率波动加剧，欧洲央行发出更为鸽派的信号，而美联储维持其当前利率轨迹。" },
+    "ru": { "title": "Волатильность EUR/USD растёт на фоне расхождения политики ЕЦБ", "summary": "Пара евро-доллар продемонстрировала повышенную волатильность на фоне более мягкой позиции ЕЦБ, в то время как ФРС сохранила текущую траекторию ставок." },
+    "pt": { "title": "Volatilidade EUR/USD Aumenta com Divergencia do BCE", "summary": "O par euro-dolar experimentou maior volatilidade enquanto o BCE sinalizou uma postura mais acomodaticia e o Federal Reserve manteve sua trajetoria atual de taxas." },
+    "ar": { "title": "تقلبات اليورو/الدولار تتصاعد وسط تباين سياسة البنك المركزي الأوروبي", "summary": "شهد زوج اليورو-دولار تقلبات متزايدة مع إشارة البنك المركزي الأوروبي إلى موقف أكثر تيسيراً بينما حافظ الاحتياطي الفيدرالي على مساره الحالي." }
+  },
+  {
+    "id": 3,
+    "date": "2026-06-27",
+    "en": { "title": "Gold Prices Hit New Record on Geopolitical Uncertainty", "summary": "Gold surpassed $2,800 per ounce for the first time as investors sought safe-haven assets amid rising geopolitical tensions and central bank accumulation continued globally." },
+    "es": { "title": "El Oro Alcanza Nuevo Record por Incertidumbre Geopolitica", "summary": "El oro supero los $2,800 por onza por primera vez mientras los inversores buscaron activos de refugio seguro ante tensiones geopoliticas crecientes." },
+    "zh": { "title": "地缘政治不确定性推动金价创历史新高", "summary": "黄金价格首次突破每盎司2,800美元，投资者在地缘政治紧张局势加剧的背景下寻求避险资产，全球央行持续增持黄金。" },
+    "ru": { "title": "Цены на золото достигли нового рекорда на фоне геополитической неопределённости", "summary": "Золото превысило $2,800 за унцию впервые, поскольку инвесторы искали безопасные активы на фоне геополитической напряжённости." },
+    "pt": { "title": "Ouro Atinge Novo Recorde com Incerteza Geopolitica", "summary": "O ouro ultrapassou US$ 2.800 por onca pela primeira vez, enquanto investidores buscaram ativos de refugio seguro em meio a tensoes geopoliticas crescentes." },
+    "ar": { "title": "أسعار الذهب تسجل رقماً قياسياً جديداً وسط عدم اليقين الجيوسياسي", "summary": "تجاوز الذهب 2,800 دولار للأونصة لأول مرة مع بحث المستثمرين عن أصول الملاذ الآمن وسط التوترات الجيوسياسية المتزايدة." }
+  },
+  {
+    "id": 4,
+    "date": "2026-06-26",
+    "en": { "title": "Emerging Market Bonds See Record Inflows in Q2", "summary": "Emerging market bond funds attracted over $45 billion in Q2, the highest quarterly inflow on record, driven by attractive yield differentials and improving economic fundamentals." },
+    "es": { "title": "Bonos de Mercados Emergentes Registran Flujos Record en Q2", "summary": "Los fondos de bonos de mercados emergentes atrajeron mas de $45 mil millones en el segundo trimestre, el mayor flujo trimestral registrado." },
+    "zh": { "title": "新兴市场债券第二季度资金流入创纪录", "summary": "新兴市场债券基金在第二季度吸引了超过450亿美元的资金流入，创下季度流入纪录，受到具有吸引力的收益率差和改善的经济基本面驱动。" },
+    "ru": { "title": "Облигации развивающихся рынков демонстрируют рекордный приток во 2-м квартале", "summary": "Фонды облигаций развивающихся рынков привлекли более $45 млрд во 2-м квартале — максимальный квартальный приток за всю историю." },
+    "pt": { "title": "Titulos de Mercados Emergentes Registram Fluxos Recordes no Q2", "summary": "Fundos de titulos de mercados emergentes atrairam mais de US$ 45 bilhoes no segundo trimestre, o maior fluxo trimestral ja registrado." },
+    "ar": { "title": "سندات الأسواق الناشئة تشهد تدفقات قياسية في الربع الثاني", "summary": "استقطبت صناديق سندات الأسواق الناشئة أكثر من 45 مليار دولار في الربع الثاني، وهو أعلى تدفق ربع سنوي على الإطلاق." }
+  },
+  {
+    "id": 5,
+    "date": "2026-06-25",
+    "en": { "title": "Crude Oil Stabilizes as OPEC+ Maintains Output Targets", "summary": "Brent crude settled near $82 per barrel after OPEC+ confirmed current production quotas would remain unchanged through Q3, balancing supply concerns with demand forecasts." },
+    "es": { "title": "El Petroleo Crudo se Estabiliza al Mantener OPEP+ Objetivos de Produccion", "summary": "El crudo Brent se estabilizo cerca de $82 por barril despues de que la OPEP+ confirmo que las cuotas de produccion permanecerian sin cambios durante el tercer trimestre." },
+    "zh": { "title": "OPEC+维持产量目标 原油价格趋稳", "summary": "布伦特原油在每桶82美元附近企稳，OPEC+确认当前生产配额将在第三季度保持不变，平衡供应担忧与需求预测。" },
+    "ru": { "title": "Нефть стабилизируется на фоне сохранения целей ОПЕК+", "summary": "Нефть Brent стабилизировалась около $82 за баррель после подтверждения ОПЕК+ сохранения текущих производственных квот в 3-м квартале." },
+    "pt": { "title": "Petroleo Bruto se Estabiliza com OPEP+ Mantendo Metas de Producao", "summary": "O Brent estabilizou-se perto de US$ 82 por barril apos a OPEP+ confirmar que as cotas de producao permaneceriam inalteradas durante o terceiro trimestre." },
+    "ar": { "title": "النفط الخام يستقر مع حفاظ أوبك+ على أهداف الإنتاج", "summary": "استقر خام برنت بالقرب من 82 دولاراً للبرميل بعد تأكيد أوبك+ أن حصص الإنتاج الحالية ستظل دون تغيير خلال الربع الثالث." }
+  },
+  {
+    "id": 6,
+    "date": "2026-06-24",
+    "en": { "title": "Asian Equity Indices Rally on Tech Sector Momentum", "summary": "Major Asian indices posted strong weekly gains led by technology and semiconductor stocks, with the Nikkei 225 and Hang Seng both reaching multi-month highs." },
+    "es": { "title": "Indices Asiaticos Suben por Impulso del Sector Tecnologico", "summary": "Los principales indices asiaticos registraron fuertes ganancias semanales liderados por acciones de tecnologia y semiconductores." },
+    "zh": { "title": "科技板块动能推动亚洲股指大涨", "summary": "在科技和半导体股的带领下，亚洲主要股指录得强劲周涨幅，日经225指数和恒生指数均创数月新高。" },
+    "ru": { "title": "Азиатские фондовые индексы растут на импульсе технологического сектора", "summary": "Основные азиатские индексы показали сильный недельный рост во главе с акциями технологического и полупроводникового секторов." },
+    "pt": { "title": "Indices Asiaticos Sobem com Impulso do Setor de Tecnologia", "summary": "Os principais indices asiaticos registraram fortes ganhos semanais liderados por acoes de tecnologia e semicondutores." },
+    "ar": { "title": "مؤشرات الأسهم الآسيوية ترتفع بدعم من زخم قطاع التكنولوجيا", "summary": "سجلت المؤشرات الآسيوية الرئيسية مكاسب أسبوعية قوية بقيادة أسهم التكنولوجيا وأشباه الموصلات." }
+  },
+  {
+    "id": 7,
+    "date": "2026-06-23",
+    "en": { "title": "Copper Demand Surges on Global Green Energy Transition", "summary": "Copper futures reached a six-month high as demand from renewable energy projects and electric vehicle manufacturing continued to outpace mine supply growth worldwide." },
+    "es": { "title": "La Demanda de Cobre Aumenta por Transicion Energetica Verde Global", "summary": "Los futuros de cobre alcanzaron un maximo de seis meses mientras la demanda de proyectos de energia renovable y fabricacion de vehiculos electricos supera el crecimiento de la oferta minera." },
+    "zh": { "title": "全球绿色能源转型推动铜需求激增", "summary": "铜期货触及六个月高点，可再生能源项目和电动汽车制造的需求持续超过全球矿山供应增长。" },
+    "ru": { "title": "Спрос на медь растёт на фоне глобального энергетического перехода", "summary": "Фьючерсы на медь достигли шестимесячного максимума на фоне растущего спроса со стороны проектов возобновляемой энергетики и производства электромобилей." },
+    "pt": { "title": "Demanda por Cobre Aumenta com Transicao Energetica Verde Global", "summary": "Os futuros de cobre atingiram maxima de seis meses enquanto a demanda de projetos de energia renovavel e fabricacao de veiculos eletricos continua a superar o crescimento da oferta mineradora." },
+    "ar": { "title": "الطلب على النحاس يرتفع مع التحول العالمي للطاقة الخضراء", "summary": "وصلت عقود النحاس الآجلة إلى أعلى مستوى في ستة أشهر مع استمرار الطلب من مشاريع الطاقة المتجددة وتصنيع السيارات الكهربائية." }
+  },
+  {
+    "id": 8,
+    "date": "2026-06-22",
+    "en": { "title": "Digital Asset Regulation Framework Advances in G20", "summary": "G20 finance ministers reached consensus on a harmonized regulatory framework for digital assets, setting common standards for exchanges, custody, and cross-border transactions." },
+    "es": { "title": "Marco Regulatorio de Activos Digitales Avanza en el G20", "summary": "Los ministros de finanzas del G20 alcanzaron un consenso sobre un marco regulatorio armonizado para activos digitales, estableciendo estandares comunes para exchanges y custodia." },
+    "zh": { "title": "G20数字资产监管框架取得进展", "summary": "G20财长就数字资产统一监管框架达成共识，为交易所、托管和跨境交易制定共同标准。" },
+    "ru": { "title": "Регуляторная база для цифровых активов продвигается в G20", "summary": "Министры финансов G20 достигли консенсуса по гармонизированной нормативной базе для цифровых активов, установив общие стандарты для бирж и хранения." },
+    "pt": { "title": "Marco Regulatorio de Ativos Digitais Avanca no G20", "summary": "Os ministros de financas do G20 chegaram a um consenso sobre uma estrutura regulatoria harmonizada para ativos digitais, estabelecendo padroes comuns para exchanges e custodia." },
+    "ar": { "title": "إطار تنظيم الأصول الرقمية يتقدم في مجموعة العشرين", "summary": "توصل وزراء مالية مجموعة العشرين إلى توافق حول إطار تنظيمي موحد للأصول الرقمية يضع معايير مشتركة للبورصات والحفظ والمعاملات العابرة للحدود." }
+  },
+  {
+    "id": 9,
+    "date": "2026-06-21",
+    "en": { "title": "Latin American FX Markets Show Resilience Amid USD Strength", "summary": "The Brazilian real and Mexican peso outperformed emerging market peers as robust commodity exports and fiscal discipline supported investor confidence in the region." },
+    "es": { "title": "Mercados FX de America Latina Muestran Resiliencia ante Fortaleza del USD", "summary": "El real brasileno y el peso mexicano superaron a sus pares de mercados emergentes gracias a robustas exportaciones de materias primas y disciplina fiscal." },
+    "zh": { "title": "拉美外汇市场在美元走强中展现韧性", "summary": "巴西雷亚尔和墨西哥比索表现优于新兴市场同行，强劲的大宗商品出口和财政纪律支撑了投资者对该地区的信心。" },
+    "ru": { "title": "Валютные рынки Латинской Америки устойчивы на фоне укрепления доллара", "summary": "Бразильский реал и мексиканский песо превзошли аналоги на развивающихся рынках благодаря устойчивому экспорту сырья и фискальной дисциплине." },
+    "pt": { "title": "Mercados FX da America Latina Mostram Resiliencia diante da Forca do USD", "summary": "O real brasileiro e o peso mexicano superaram pares de mercados emergentes com exportacoes robustas de commodities e disciplina fiscal sustentando a confianca dos investidores." },
+    "ar": { "title": "أسواق العملات في أمريكا اللاتينية تظهر مرونة وسط قوة الدولار", "summary": "تفوق الريال البرازيلي والبيزو المكسيكي على نظرائهم في الأسواق الناشئة بدعم من صادرات السلع القوية والانضباط المالي." }
+  },
+  {
+    "id": 10,
+    "date": "2026-06-20",
+    "en": { "title": "Global Trade Volume Reaches Pre-Pandemic Highs", "summary": "World Trade Organization data confirms global merchandise trade volume has surpassed pre-pandemic levels, driven by strong intra-Asian commerce and recovering European demand." },
+    "es": { "title": "El Volumen del Comercio Global Alcanza Maximos Pre-Pandemia", "summary": "Datos de la OMC confirman que el volumen del comercio global de mercancias ha superado los niveles pre-pandemia, impulsado por el fuerte comercio intra-asiatico." },
+    "zh": { "title": "全球贸易量恢复至疫情前高点", "summary": "世界贸易组织数据确认全球商品贸易量已超过疫情前水平，受亚洲内部贸易强劲和欧洲需求复苏推动。" },
+    "ru": { "title": "Глобальный объём торговли достигает допандемийных максимумов", "summary": "Данные ВТО подтверждают, что объём мировой товарной торговли превысил допандемийные уровни, чему способствовала активная торговля внутри Азии." },
+    "pt": { "title": "Volume do Comercio Global Atinge Maximas Pre-Pandemia", "summary": "Dados da OMC confirmam que o volume do comercio global de mercadorias superou os niveis pre-pandemia, impulsionado pelo forte comercio intra-asiatico e recuperacao da demanda europeia." },
+    "ar": { "title": "حجم التجارة العالمية يصل إلى مستويات ما قبل الجائحة", "summary": "تؤكد بيانات منظمة التجارة العالمية أن حجم التجارة العالمية للبضائع تجاوز مستويات ما قبل الجائحة بدعم من التجارة القوية داخل آسيا." }
+  }
+]

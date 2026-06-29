@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import TradingQuiz from '../../components/TradingQuiz.astro';
+import WeeklyNews from '../../components/WeeklyNews.astro';
 ---
 
 <BaseLayout
@@ -8,45 +10,83 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   lang="ar"
 >
   <Fragment slot="logo">Maryna-Trade</Fragment>
-  <Fragment slot="footer-name">Maryna-Trade – مسجلة في جمهورية كيريباتي</Fragment>
+  <Fragment slot="footer-name">Maryna-Trade - مسجلة في جمهورية كيريباتي</Fragment>
 
   <section class="hero">
-    <img src="/images/marynatrade-banner.webp" alt="Maryna-Trade - البنية التحتية للتداول والاستثمار" class="hero-logo" width="280" height="280" />
+    <img src="/images/marynatrade-banner.webp" alt="Maryna-Trade - البنية التحتية للتداول والاستثمار" class="hero-logo" width="200" height="200" />
     <h1>Maryna-Trade</h1>
     <p class="tagline">البنية التحتية للتداول والاستثمار</p>
-    <p>الوصول إلى الأسواق · التنفيذ · الفرص المهيكلة</p>
+    <p class="lead">الوصول إلى الأسواق &middot; التنفيذ &middot; الفرص المهيكلة</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="hero-stat-value">أسواق عالمية</span>
+        <div class="hero-stat-line"></div>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-value">متعدد الأصول</span>
+        <div class="hero-stat-line"></div>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-value">متوافق</span>
+        <div class="hero-stat-line"></div>
+      </div>
+    </div>
   </section>
 
-  <div class="ad-slot">مساحة إعلانية - Google AdSense</div>
+  <div class="ad-slot">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2701690512336282" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  </div>
 
   <div class="card-grid">
     <article class="card">
+      <span class="card-icon">📈</span>
+      <span class="card-tag">استراتيجية</span>
       <h2>الاستثمارات</h2>
-      <p>تدعم MarynaTrade الأنشطة الاستثمارية من خلال الوصول المهيكل إلى السوق وسير العمل التشغيلي. التعرض الاستراتيجي للسوق وفرص الاستثمار المهيكلة ودعم التخصيص عبر الأسواق.</p>
+      <p>التعرض الاستراتيجي للسوق وفرص الاستثمار المهيكلة ودعم التخصيص عبر الأسواق من خلال سير العمل التشغيلي والوصول المؤسسي.</p>
     </article>
     <article class="card">
+      <span class="card-icon">⚡</span>
+      <span class="card-tag">تنفيذ</span>
       <h2>التداول</h2>
       <p>دعم تنفيذ السوق وهيكلة الصفقات والتنسيق التشغيلي. تختلف الخدمات حسب الولاية القضائية وملف العميل لضمان الامتثال والنتائج المثلى.</p>
     </article>
     <article class="card">
+      <span class="card-icon">🌍</span>
+      <span class="card-tag">تغطية</span>
       <h2>الأسواق</h2>
-      <p>تغطية البيئات الكلية العالمية والعملات الأجنبية والمشتقات ومؤشرات الأسهم والأصول الرقمية. تنطبق التوافر المشروط على فئات أصول مختارة حسب الولاية القضائية.</p>
+      <p>العملات الأجنبية والمشتقات ومؤشرات الأسهم والأصول الرقمية والبيئات الكلية العالمية. تنطبق التوافر المشروط على فئات أصول مختارة حسب الولاية القضائية.</p>
     </article>
     <article class="card">
+      <span class="card-icon">⚖️</span>
+      <span class="card-tag">حوكمة</span>
       <h2>المبادئ التشغيلية</h2>
       <p>النطاق الواضح والعمليات المهيكلة والوعي بالمخاطر والشفافية والنهج الموجه نحو الامتثال يوجه جميع الأنشطة وعلاقات العملاء.</p>
     </article>
     <article class="card">
+      <span class="card-icon">💎</span>
+      <span class="card-tag">مؤسسي</span>
       <h2>الفرص المهيكلة</h2>
       <p>الوصول إلى المنتجات الاستثمارية المهيكلة وحلول التنفيذ المخصصة المصممة للمشاركين المؤسسيين والمؤهلين الباحثين عن تعرض متنوع للسوق.</p>
     </article>
     <article class="card">
+      <span class="card-icon">🛡️</span>
+      <span class="card-tag">امتثال</span>
       <h2>الوعي بالمخاطر</h2>
       <p>لا نقدم استشارات مالية شخصية. تُجرى جميع الأنشطة ضمن إطار الوعي بالمخاطر والامتثال التنظيمي والإفصاح الشفاف.</p>
     </article>
   </div>
 
-  <div class="ad-slot">مساحة إعلانية - Google AdSense</div>
+  <div class="content-container">
+    <TradingQuiz lang="ar" />
+  </div>
+
+  <div class="ad-slot">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2701690512336282" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  </div>
+
+  <div class="content-container">
+    <WeeklyNews lang="ar" />
+  </div>
 
   <section class="registration-info">
     <h2>التسجيل والمعلومات القانونية</h2>
@@ -54,38 +94,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     <p><strong>رقم الترخيص:</strong> KBN-80-000002</p>
     <p><strong>المكتب المسجل:</strong> Central Park, تاراوا, جمهورية كيريباتي</p>
     <p><strong>العنوان:</strong> ماليكون، مانزانيو، كوبا</p>
+    <p class="disclaimer">لا نقدم استشارات مالية شخصية.</p>
   </section>
 
-  <div class="ad-slot">مساحة إعلانية - Google AdSense</div>
+  <div class="ad-slot">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2701690512336282" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  </div>
 </BaseLayout>
-
-<style>
-  .hero-logo {
-    border-radius: 50%;
-    margin-bottom: 20px;
-    background: white;
-    padding: 10px;
-  }
-  .tagline {
-    font-size: 1.4rem;
-    font-weight: 600;
-    opacity: 1;
-    margin-bottom: 8px;
-  }
-  .registration-info {
-    background: white;
-    border-radius: 8px;
-    padding: 32px;
-    margin-top: 32px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    text-align: center;
-  }
-  .registration-info h2 {
-    margin-bottom: 16px;
-    color: #1a1a2e;
-  }
-  .registration-info p {
-    margin: 6px 0;
-    color: #555;
-  }
-</style>

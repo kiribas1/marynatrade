@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import TradingQuiz from '../../components/TradingQuiz.astro';
+import WeeklyNews from '../../components/WeeklyNews.astro';
 ---
 
 <BaseLayout
@@ -8,45 +10,83 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   lang="ru"
 >
   <Fragment slot="logo">Maryna-Trade</Fragment>
-  <Fragment slot="footer-name">Maryna-Trade – Зарегистрирована в Республике Кирибати</Fragment>
+  <Fragment slot="footer-name">Maryna-Trade - Зарегистрирована в Республике Кирибати</Fragment>
 
   <section class="hero">
-    <img src="/images/marynatrade-banner.webp" alt="Maryna-Trade - Торговая и инвестиционная инфраструктура" class="hero-logo" width="280" height="280" />
+    <img src="/images/marynatrade-banner.webp" alt="Maryna-Trade - Торговая и инвестиционная инфраструктура" class="hero-logo" width="200" height="200" />
     <h1>Maryna-Trade</h1>
     <p class="tagline">Торговая и инвестиционная инфраструктура</p>
-    <p>Доступ к рынкам · Исполнение · Структурированные возможности</p>
+    <p class="lead">Доступ к рынкам &middot; Исполнение &middot; Структурированные возможности</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="hero-stat-value">Глобальные рынки</span>
+        <div class="hero-stat-line"></div>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-value">Мульти-актив</span>
+        <div class="hero-stat-line"></div>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-value">Комплаенс</span>
+        <div class="hero-stat-line"></div>
+      </div>
+    </div>
   </section>
 
-  <div class="ad-slot">Рекламное место - Google AdSense</div>
+  <div class="ad-slot">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2701690512336282" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  </div>
 
   <div class="card-grid">
     <article class="card">
+      <span class="card-icon">📈</span>
+      <span class="card-tag">Стратегия</span>
       <h2>Инвестиции</h2>
-      <p>MarynaTrade поддерживает инвестиционную деятельность через структурированный доступ к рынкам и операционные процессы. Стратегическая рыночная экспозиция, структурированные инвестиционные возможности и поддержка кросс-рыночного распределения.</p>
+      <p>Стратегическая рыночная экспозиция, структурированные инвестиционные возможности и поддержка кросс-рыночного распределения через операционные процессы и институциональный доступ.</p>
     </article>
     <article class="card">
+      <span class="card-icon">⚡</span>
+      <span class="card-tag">Исполнение</span>
       <h2>Трейдинг</h2>
       <p>Поддержка рыночного исполнения, структурирование сделок и операционная координация. Услуги варьируются в зависимости от юрисдикции и профиля клиента.</p>
     </article>
     <article class="card">
+      <span class="card-icon">🌍</span>
+      <span class="card-tag">Покрытие</span>
       <h2>Рынки</h2>
-      <p>Охват глобальных макроэкономических сред, валютного рынка и деривативов, фондовых индексов и цифровых активов. Условная доступность применяется к отдельным классам активов.</p>
+      <p>Валютный рынок и деривативы, фондовые индексы, цифровые активы и глобальные макроэкономические среды. Условная доступность применяется к отдельным классам активов.</p>
     </article>
     <article class="card">
+      <span class="card-icon">⚖️</span>
+      <span class="card-tag">Управление</span>
       <h2>Операционные принципы</h2>
       <p>Чёткий охват, структурированные операции, осознание рисков, прозрачность и ориентированный на соблюдение нормативов подход направляют всю деятельность.</p>
     </article>
     <article class="card">
+      <span class="card-icon">💎</span>
+      <span class="card-tag">Институциональный</span>
       <h2>Структурированные возможности</h2>
       <p>Доступ к структурированным инвестиционным продуктам и индивидуальным решениям исполнения для институциональных и квалифицированных участников.</p>
     </article>
     <article class="card">
+      <span class="card-icon">🛡️</span>
+      <span class="card-tag">Комплаенс</span>
       <h2>Осознание рисков</h2>
       <p>Мы не предоставляем личных финансовых консультаций. Вся деятельность осуществляется в рамках осознания рисков, регуляторного соответствия и прозрачного раскрытия информации.</p>
     </article>
   </div>
 
-  <div class="ad-slot">Рекламное место - Google AdSense</div>
+  <div class="content-container">
+    <TradingQuiz lang="ru" />
+  </div>
+
+  <div class="ad-slot">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2701690512336282" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  </div>
+
+  <div class="content-container">
+    <WeeklyNews lang="ru" />
+  </div>
 
   <section class="registration-info">
     <h2>Регистрация и правовая информация</h2>
@@ -54,38 +94,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     <p><strong>Номер лицензии:</strong> KBN-80-000002</p>
     <p><strong>Зарегистрированный офис:</strong> Central Park, Тарава, Республика Кирибати</p>
     <p><strong>Адрес:</strong> Малекон, Мансанильо, Куба</p>
+    <p class="disclaimer">Мы не предоставляем личных финансовых консультаций.</p>
   </section>
 
-  <div class="ad-slot">Рекламное место - Google AdSense</div>
+  <div class="ad-slot">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2701690512336282" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  </div>
 </BaseLayout>
-
-<style>
-  .hero-logo {
-    border-radius: 50%;
-    margin-bottom: 20px;
-    background: white;
-    padding: 10px;
-  }
-  .tagline {
-    font-size: 1.4rem;
-    font-weight: 600;
-    opacity: 1;
-    margin-bottom: 8px;
-  }
-  .registration-info {
-    background: white;
-    border-radius: 8px;
-    padding: 32px;
-    margin-top: 32px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    text-align: center;
-  }
-  .registration-info h2 {
-    margin-bottom: 16px;
-    color: #1a1a2e;
-  }
-  .registration-info p {
-    margin: 6px 0;
-    color: #555;
-  }
-</style>

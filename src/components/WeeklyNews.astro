@@ -1,0 +1,95 @@
+---
+import newsData from '../data/weekly-news.json';
+
+interface Props {
+  lang: string;
+}
+const { lang } = Astro.props;
+
+const titles: Record<string, string> = {
+  en: "Weekly Market News",
+  es: "Noticias Semanales del Mercado",
+  zh: "每周市场新闻",
+  ru: "Еженедельные новости рынка",
+  pt: "Noticias Semanais do Mercado",
+  ar: "أخبار السوق الأسبوعية",
+};
+
+type NewsItem = {
+  id: number;
+  date: string;
+  [key: string]: any;
+};
+
+const news = newsData as NewsItem[];
+const sectionTitle = titles[lang] || titles.en;
+---
+
+<section class="news-section">
+  <h2 class="news-title">{sectionTitle}</h2>
+  <div class="news-grid">
+    {news.map((item) => {
+      const localized = item[lang] || item['en'];
+      return (
+        <article class="news-card">
+          <div class="news-date">{item.date}</div>
+          <h3 class="news-headline">{localized.title}</h3>
+          <p class="news-summary">{localized.summary}</p>
+        </article>
+      );
+    })}
+  </div>
+</section>
+
+<style>
+  .news-section {
+    margin: 40px 0;
+  }
+  .news-title {
+    text-align: center;
+    font-size: 1.6rem;
+    color: #10b981;
+    margin-bottom: 24px;
+  }
+  .news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
+  }
+  .news-card {
+    background: rgba(16,185,129,0.04);
+    border: 1px solid rgba(16,185,129,0.12);
+    border-radius: 12px;
+    padding: 20px;
+    transition: all 0.2s;
+  }
+  .news-card:hover {
+    border-color: rgba(16,185,129,0.3);
+    background: rgba(16,185,129,0.08);
+    transform: translateY(-2px);
+  }
+  .news-date {
+    font-size: 0.78rem;
+    color: #0d9488;
+    font-weight: 600;
+    margin-bottom: 8px;
+    letter-spacing: 0.02em;
+  }
+  .news-headline {
+    font-size: 1rem;
+    color: #e2e8f0;
+    margin-bottom: 8px;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+  .news-summary {
+    font-size: 0.88rem;
+    color: #94a3b8;
+    line-height: 1.5;
+  }
+  @media (max-width: 640px) {
+    .news-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import TradingQuiz from '../../components/TradingQuiz.astro';
+import WeeklyNews from '../../components/WeeklyNews.astro';
 ---
 
 <BaseLayout
@@ -8,45 +10,83 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   lang="en"
 >
   <Fragment slot="logo">Maryna-Trade</Fragment>
-  <Fragment slot="footer-name">Maryna-Trade – Registered in the Republic of Kiribati</Fragment>
+  <Fragment slot="footer-name">Maryna-Trade - Registered in the Republic of Kiribati</Fragment>
 
   <section class="hero">
-    <img src="/images/marynatrade-banner.webp" alt="Maryna-Trade - Trading & Investment Infrastructure" class="hero-logo" width="280" height="280" />
+    <img src="/images/marynatrade-banner.webp" alt="Maryna-Trade - Trading & Investment Infrastructure" class="hero-logo" width="200" height="200" />
     <h1>Maryna-Trade</h1>
     <p class="tagline">Trading & Investment Infrastructure</p>
-    <p>Market Access · Execution · Structured Opportunities</p>
+    <p class="lead">Market Access &middot; Execution &middot; Structured Opportunities</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="hero-stat-value">Global Markets</span>
+        <div class="hero-stat-line"></div>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-value">Multi-Asset</span>
+        <div class="hero-stat-line"></div>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-value">Compliant</span>
+        <div class="hero-stat-line"></div>
+      </div>
+    </div>
   </section>
 
-  <div class="ad-slot">Ad Space - Google AdSense</div>
+  <div class="ad-slot">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2701690512336282" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  </div>
 
   <div class="card-grid">
     <article class="card">
+      <span class="card-icon">📈</span>
+      <span class="card-tag">Strategy</span>
       <h2>Investments</h2>
-      <p>MarynaTrade supports investment-related activities through structured market access and operational workflows. Strategic market exposure, structured investment opportunities, and cross-market allocation support.</p>
+      <p>Strategic market exposure, structured investment opportunities, and cross-market allocation support through operational workflows and institutional-grade access.</p>
     </article>
     <article class="card">
+      <span class="card-icon">⚡</span>
+      <span class="card-tag">Execution</span>
       <h2>Trading</h2>
       <p>Market execution support, trade structuring, and operational coordination. Services vary by jurisdiction and client profile to ensure compliance and optimal results.</p>
     </article>
     <article class="card">
+      <span class="card-icon">🌍</span>
+      <span class="card-tag">Coverage</span>
       <h2>Markets</h2>
-      <p>Coverage across global macro environments, FX and derivatives, equity indices, and digital assets. Conditional availability applies to select asset classes by jurisdiction.</p>
+      <p>FX and derivatives, equity indices, digital assets, and global macro environments. Conditional availability applies to select asset classes by jurisdiction.</p>
     </article>
     <article class="card">
+      <span class="card-icon">⚖️</span>
+      <span class="card-tag">Governance</span>
       <h2>Operating Principles</h2>
       <p>Clear scope, structured operations, risk awareness, transparency, and a compliance-oriented approach guide all activities and client relationships.</p>
     </article>
     <article class="card">
+      <span class="card-icon">💎</span>
+      <span class="card-tag">Institutional</span>
       <h2>Structured Opportunities</h2>
       <p>Access to structured investment products and tailored execution solutions designed for institutional and qualified participants seeking diversified market exposure.</p>
     </article>
     <article class="card">
+      <span class="card-icon">🛡️</span>
+      <span class="card-tag">Compliance</span>
       <h2>Risk Awareness</h2>
       <p>We do not provide personal financial advice. All activities are conducted within a framework of risk awareness, regulatory compliance, and transparent disclosure.</p>
     </article>
   </div>
 
-  <div class="ad-slot">Ad Space - Google AdSense</div>
+  <div class="content-container">
+    <TradingQuiz lang="en" />
+  </div>
+
+  <div class="ad-slot">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2701690512336282" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  </div>
+
+  <div class="content-container">
+    <WeeklyNews lang="en" />
+  </div>
 
   <section class="registration-info">
     <h2>Registration & Legal</h2>
@@ -54,38 +94,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     <p><strong>License Number:</strong> KBN-80-000002</p>
     <p><strong>Registered Office:</strong> Central Park, Tarawa, Republic of Kiribati</p>
     <p><strong>Address:</strong> Malecon, Manzanillo, Cuba</p>
+    <p class="disclaimer">We do not provide personal financial advice.</p>
   </section>
 
-  <div class="ad-slot">Ad Space - Google AdSense</div>
+  <div class="ad-slot">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2701690512336282" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  </div>
 </BaseLayout>
-
-<style>
-  .hero-logo {
-    border-radius: 50%;
-    margin-bottom: 20px;
-    background: white;
-    padding: 10px;
-  }
-  .tagline {
-    font-size: 1.4rem;
-    font-weight: 600;
-    opacity: 1;
-    margin-bottom: 8px;
-  }
-  .registration-info {
-    background: white;
-    border-radius: 8px;
-    padding: 32px;
-    margin-top: 32px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    text-align: center;
-  }
-  .registration-info h2 {
-    margin-bottom: 16px;
-    color: #1a1a2e;
-  }
-  .registration-info p {
-    margin: 6px 0;
-    color: #555;
-  }
-</style>

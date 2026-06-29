@@ -1,91 +1,103 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import TradingQuiz from '../../components/TradingQuiz.astro';
+import WeeklyNews from '../../components/WeeklyNews.astro';
 ---
 
 <BaseLayout
-  title="Maryna-Trade | Infraestructura de Trading e Inversión - Acceso a Mercados"
-  description="Maryna-Trade ofrece infraestructura de trading e inversión, acceso a mercados, ejecución y oportunidades estructuradas. Registrada en la República de Kiribati."
+  title="Maryna-Trade | Infraestructura de Trading e Inversion - Acceso a Mercados"
+  description="Maryna-Trade ofrece infraestructura de trading e inversion, acceso a mercados, ejecucion y oportunidades estructuradas. Registrada en la Republica de Kiribati."
   lang="es"
 >
   <Fragment slot="logo">Maryna-Trade</Fragment>
-  <Fragment slot="footer-name">Maryna-Trade – Registrada en la República de Kiribati</Fragment>
+  <Fragment slot="footer-name">Maryna-Trade - Registrada en la Republica de Kiribati</Fragment>
 
   <section class="hero">
-    <img src="/images/marynatrade-banner.webp" alt="Maryna-Trade - Infraestructura de Trading e Inversión" class="hero-logo" width="280" height="280" />
+    <img src="/images/marynatrade-banner.webp" alt="Maryna-Trade - Infraestructura de Trading e Inversion" class="hero-logo" width="200" height="200" />
     <h1>Maryna-Trade</h1>
-    <p class="tagline">Infraestructura de Trading e Inversión</p>
-    <p>Acceso a Mercados · Ejecución · Oportunidades Estructuradas</p>
+    <p class="tagline">Infraestructura de Trading e Inversion</p>
+    <p class="lead">Acceso a Mercados &middot; Ejecucion &middot; Oportunidades Estructuradas</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="hero-stat-value">Mercados Globales</span>
+        <div class="hero-stat-line"></div>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-value">Multi-Activo</span>
+        <div class="hero-stat-line"></div>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-value">Cumplimiento</span>
+        <div class="hero-stat-line"></div>
+      </div>
+    </div>
   </section>
 
-  <div class="ad-slot">Espacio Publicitario - Google AdSense</div>
+  <div class="ad-slot">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2701690512336282" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  </div>
 
   <div class="card-grid">
     <article class="card">
+      <span class="card-icon">📈</span>
+      <span class="card-tag">Estrategia</span>
       <h2>Inversiones</h2>
-      <p>MarynaTrade apoya actividades de inversión a través de acceso estructurado al mercado y flujos de trabajo operativos. Exposición estratégica al mercado, oportunidades de inversión estructuradas y soporte de asignación entre mercados.</p>
+      <p>Exposicion estrategica al mercado, oportunidades de inversion estructuradas y soporte de asignacion entre mercados a traves de flujos de trabajo operativos y acceso institucional.</p>
     </article>
     <article class="card">
+      <span class="card-icon">⚡</span>
+      <span class="card-tag">Ejecucion</span>
       <h2>Trading</h2>
-      <p>Soporte de ejecución de mercado, estructuración de operaciones y coordinación operativa. Los servicios varían según la jurisdicción y el perfil del cliente.</p>
+      <p>Soporte de ejecucion de mercado, estructuracion de operaciones y coordinacion operativa. Los servicios varian segun la jurisdiccion y el perfil del cliente.</p>
     </article>
     <article class="card">
+      <span class="card-icon">🌍</span>
+      <span class="card-tag">Cobertura</span>
       <h2>Mercados</h2>
-      <p>Cobertura en entornos macro globales, FX y derivados, índices de renta variable y activos digitales. Disponibilidad condicional aplica a clases de activos seleccionadas por jurisdicción.</p>
+      <p>FX y derivados, indices de renta variable, activos digitales y entornos macro globales. La disponibilidad condicional aplica a clases de activos seleccionadas por jurisdiccion.</p>
     </article>
     <article class="card">
+      <span class="card-icon">⚖️</span>
+      <span class="card-tag">Gobernanza</span>
       <h2>Principios Operativos</h2>
-      <p>Alcance claro, operaciones estructuradas, conciencia de riesgo, transparencia y enfoque orientado al cumplimiento guían todas las actividades y relaciones con clientes.</p>
+      <p>Alcance claro, operaciones estructuradas, conciencia de riesgo, transparencia y enfoque orientado al cumplimiento guian todas las actividades y relaciones con clientes.</p>
     </article>
     <article class="card">
+      <span class="card-icon">💎</span>
+      <span class="card-tag">Institucional</span>
       <h2>Oportunidades Estructuradas</h2>
-      <p>Acceso a productos de inversión estructurados y soluciones de ejecución personalizadas diseñadas para participantes institucionales y cualificados.</p>
+      <p>Acceso a productos de inversion estructurados y soluciones de ejecucion personalizadas disenadas para participantes institucionales y cualificados.</p>
     </article>
     <article class="card">
+      <span class="card-icon">🛡️</span>
+      <span class="card-tag">Cumplimiento</span>
       <h2>Conciencia de Riesgo</h2>
-      <p>No proporcionamos asesoramiento financiero personal. Todas las actividades se realizan dentro de un marco de conciencia de riesgo, cumplimiento regulatorio y divulgación transparente.</p>
+      <p>No proporcionamos asesoramiento financiero personal. Todas las actividades se realizan dentro de un marco de conciencia de riesgo, cumplimiento regulatorio y divulgacion transparente.</p>
     </article>
   </div>
 
-  <div class="ad-slot">Espacio Publicitario - Google AdSense</div>
+  <div class="content-container">
+    <TradingQuiz lang="es" />
+  </div>
+
+  <div class="ad-slot">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2701690512336282" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  </div>
+
+  <div class="content-container">
+    <WeeklyNews lang="es" />
+  </div>
 
   <section class="registration-info">
     <h2>Registro y Legal</h2>
-    <p><strong>Número de Registro:</strong> CP-000026</p>
-    <p><strong>Número de Licencia:</strong> KBN-80-000002</p>
-    <p><strong>Oficina Registrada:</strong> Central Park, Tarawa, República de Kiribati</p>
-    <p><strong>Dirección:</strong> Malecón, Manzanillo, Cuba</p>
+    <p><strong>Numero de Registro:</strong> CP-000026</p>
+    <p><strong>Numero de Licencia:</strong> KBN-80-000002</p>
+    <p><strong>Oficina Registrada:</strong> Central Park, Tarawa, Republica de Kiribati</p>
+    <p><strong>Direccion:</strong> Malecon, Manzanillo, Cuba</p>
+    <p class="disclaimer">No proporcionamos asesoramiento financiero personal.</p>
   </section>
 
-  <div class="ad-slot">Espacio Publicitario - Google AdSense</div>
+  <div class="ad-slot">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2701690512336282" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  </div>
 </BaseLayout>
-
-<style>
-  .hero-logo {
-    border-radius: 50%;
-    margin-bottom: 20px;
-    background: white;
-    padding: 10px;
-  }
-  .tagline {
-    font-size: 1.4rem;
-    font-weight: 600;
-    opacity: 1;
-    margin-bottom: 8px;
-  }
-  .registration-info {
-    background: white;
-    border-radius: 8px;
-    padding: 32px;
-    margin-top: 32px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    text-align: center;
-  }
-  .registration-info h2 {
-    margin-bottom: 16px;
-    color: #1a1a2e;
-  }
-  .registration-info p {
-    margin: 6px 0;
-    color: #555;
-  }
-</style>

@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import TradingQuiz from '../../components/TradingQuiz.astro';
+import WeeklyNews from '../../components/WeeklyNews.astro';
 ---
 
 <BaseLayout
@@ -8,45 +10,83 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   lang="zh"
 >
   <Fragment slot="logo">Maryna-Trade</Fragment>
-  <Fragment slot="footer-name">Maryna-Trade – 在基里巴斯共和国注册</Fragment>
+  <Fragment slot="footer-name">Maryna-Trade - 在基里巴斯共和国注册</Fragment>
 
   <section class="hero">
-    <img src="/images/marynatrade-banner.webp" alt="Maryna-Trade - 交易与投资基础设施" class="hero-logo" width="280" height="280" />
+    <img src="/images/marynatrade-banner.webp" alt="Maryna-Trade - 交易与投资基础设施" class="hero-logo" width="200" height="200" />
     <h1>Maryna-Trade</h1>
     <p class="tagline">交易与投资基础设施</p>
-    <p>市场准入 · 执行 · 结构化机会</p>
+    <p class="lead">市场准入 &middot; 执行 &middot; 结构化机会</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="hero-stat-value">全球市场</span>
+        <div class="hero-stat-line"></div>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-value">多元资产</span>
+        <div class="hero-stat-line"></div>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-value">合规运营</span>
+        <div class="hero-stat-line"></div>
+      </div>
+    </div>
   </section>
 
-  <div class="ad-slot">广告位 - Google AdSense</div>
+  <div class="ad-slot">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2701690512336282" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  </div>
 
   <div class="card-grid">
     <article class="card">
+      <span class="card-icon">📈</span>
+      <span class="card-tag">策略</span>
       <h2>投资</h2>
-      <p>MarynaTrade通过结构化市场准入和运营工作流程支持投资相关活动。战略市场敞口、结构化投资机会和跨市场配置支持。</p>
+      <p>战略市场敞口、结构化投资机会和跨市场配置支持，通过运营工作流程和机构级市场准入实现。</p>
     </article>
     <article class="card">
+      <span class="card-icon">⚡</span>
+      <span class="card-tag">执行</span>
       <h2>交易</h2>
       <p>市场执行支持、交易结构化和运营协调。服务因司法管辖区和客户概况而异，以确保合规和最优结果。</p>
     </article>
     <article class="card">
+      <span class="card-icon">🌍</span>
+      <span class="card-tag">覆盖</span>
       <h2>市场</h2>
-      <p>涵盖全球宏观环境、外汇和衍生品、股票指数和数字资产。按司法管辖区对特定资产类别实行有条件可用性。</p>
+      <p>外汇和衍生品、股票指数、数字资产和全球宏观环境。按司法管辖区对特定资产类别实行有条件可用性。</p>
     </article>
     <article class="card">
+      <span class="card-icon">⚖️</span>
+      <span class="card-tag">治理</span>
       <h2>运营原则</h2>
       <p>明确的范围、结构化运营、风险意识、透明度和合规导向的方法指导所有活动和客户关系。</p>
     </article>
     <article class="card">
+      <span class="card-icon">💎</span>
+      <span class="card-tag">机构级</span>
       <h2>结构化机会</h2>
       <p>为寻求多元化市场敞口的机构和合格参与者提供结构化投资产品和定制执行解决方案。</p>
     </article>
     <article class="card">
+      <span class="card-icon">🛡️</span>
+      <span class="card-tag">合规</span>
       <h2>风险意识</h2>
       <p>我们不提供个人理财建议。所有活动均在风险意识、监管合规和透明披露的框架内进行。</p>
     </article>
   </div>
 
-  <div class="ad-slot">广告位 - Google AdSense</div>
+  <div class="content-container">
+    <TradingQuiz lang="zh" />
+  </div>
+
+  <div class="ad-slot">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2701690512336282" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  </div>
+
+  <div class="content-container">
+    <WeeklyNews lang="zh" />
+  </div>
 
   <section class="registration-info">
     <h2>注册与法律信息</h2>
@@ -54,38 +94,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     <p><strong>许可证号：</strong> KBN-80-000002</p>
     <p><strong>注册办公室：</strong> Central Park, Tarawa, 基里巴斯共和国</p>
     <p><strong>地址：</strong> Malecon, Manzanillo, 古巴</p>
+    <p class="disclaimer">我们不提供个人理财建议。</p>
   </section>
 
-  <div class="ad-slot">广告位 - Google AdSense</div>
+  <div class="ad-slot">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2701690512336282" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  </div>
 </BaseLayout>
-
-<style>
-  .hero-logo {
-    border-radius: 50%;
-    margin-bottom: 20px;
-    background: white;
-    padding: 10px;
-  }
-  .tagline {
-    font-size: 1.4rem;
-    font-weight: 600;
-    opacity: 1;
-    margin-bottom: 8px;
-  }
-  .registration-info {
-    background: white;
-    border-radius: 8px;
-    padding: 32px;
-    margin-top: 32px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    text-align: center;
-  }
-  .registration-info h2 {
-    margin-bottom: 16px;
-    color: #1a1a2e;
-  }
-  .registration-info p {
-    margin: 6px 0;
-    color: #555;
-  }
-</style>

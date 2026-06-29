@@ -1,0 +1,460 @@
+---
+interface Props {
+  lang: string;
+}
+const { lang } = Astro.props;
+
+const labels: Record<string, { title: string; score: string; correct: string; wrong: string; next: string; playAgain: string; result: string; of: string; funFact: string }> = {
+  en: { title: "Trading Knowledge Quiz", score: "Score", correct: "Correct!", wrong: "Wrong!", next: "Next Question", playAgain: "Play Again", result: "Your Result", of: "of", funFact: "Fun Fact" },
+  es: { title: "Quiz de Conocimientos de Trading", score: "Puntuacion", correct: "Correcto!", wrong: "Incorrecto!", next: "Siguiente Pregunta", playAgain: "Jugar de Nuevo", result: "Tu Resultado", of: "de", funFact: "Dato Curioso" },
+  zh: { title: "交易知识测验", score: "得分", correct: "正确!", wrong: "错误!", next: "下一题", playAgain: "再玩一次", result: "你的成绩", of: "/", funFact: "趣味知识" },
+  ru: { title: "Тест на знание трейдинга", score: "Счёт", correct: "Верно!", wrong: "Неверно!", next: "Следующий вопрос", playAgain: "Играть снова", result: "Ваш результат", of: "из", funFact: "Интересный факт" },
+  pt: { title: "Quiz de Conhecimentos de Trading", score: "Pontuacao", correct: "Correto!", wrong: "Errado!", next: "Proxima Pergunta", playAgain: "Jogar Novamente", result: "Seu Resultado", of: "de", funFact: "Curiosidade" },
+  ar: { title: "اختبار معرفة التداول", score: "النتيجة", correct: "صحيح!", wrong: "خطأ!", next: "السؤال التالي", playAgain: "العب مرة أخرى", result: "نتيجتك", of: "من", funFact: "حقيقة ممتعة" },
+};
+
+const l = labels[lang] || labels.en;
+---
+
+<section class="quiz-section" id="trading-quiz">
+  <div class="quiz-container">
+    <h2 class="quiz-title">{l.title}</h2>
+    <div class="quiz-score-bar">
+      <span class="quiz-score-label">{l.score}: <strong id="quiz-score">0</strong> / <span id="quiz-total">12</span></span>
+      <span class="quiz-progress" id="quiz-progress">Q 1/12</span>
+    </div>
+    <div id="quiz-question-area">
+      <p class="quiz-question" id="quiz-question"></p>
+      <div class="quiz-options" id="quiz-options"></div>
+    </div>
+    <div class="quiz-feedback" id="quiz-feedback" style="display:none;">
+      <p id="quiz-feedback-text"></p>
+      <p class="quiz-funfact"><span class="funfact-label">{l.funFact}:</span> <span id="quiz-funfact"></span></p>
+      <button class="quiz-next-btn" id="quiz-next-btn">{l.next}</button>
+    </div>
+    <div class="quiz-result" id="quiz-result" style="display:none;">
+      <p class="result-title">{l.result}</p>
+      <p class="result-score" id="result-score-text"></p>
+      <button class="quiz-play-again-btn" id="quiz-play-again">{l.playAgain}</button>
+    </div>
+  </div>
+</section>
+
+<script define:vars={{ lang, labels }}>
+  const l = labels[lang] || labels.en;
+
+  const allQuestions = [
+    {
+      q: { en: "What does FX stand for?", es: "Que significa FX?", zh: "FX代表什么?", ru: "Что означает FX?", pt: "O que significa FX?", ar: "ماذا يعني FX؟" },
+      options: {
+        en: ["Foreign Exchange", "Fixed Index", "Future Exercise", "Financial Export"],
+        es: ["Cambio de Divisas", "Indice Fijo", "Ejercicio Futuro", "Exportacion Financiera"],
+        zh: ["外汇交易", "固定指数", "期货执行", "金融出口"],
+        ru: ["Валютный обмен", "Фиксированный индекс", "Будущее исполнение", "Финансовый экспорт"],
+        pt: ["Cambio Estrangeiro", "Indice Fixo", "Exercicio Futuro", "Exportacao Financeira"],
+        ar: ["تبادل العملات الأجنبية", "مؤشر ثابت", "تمرين مستقبلي", "تصدير مالي"]
+      },
+      correct: 0,
+      fact: { en: "The forex market trades over $7.5 trillion daily, making it the largest financial market.", es: "El mercado forex opera mas de $7.5 billones diarios.", zh: "外汇市场日交易量超过7.5万亿美元，是全球最大的金融市场。", ru: "Рынок форекс торгует более $7.5 трлн в день.", pt: "O mercado forex negocia mais de US$ 7,5 trilhoes por dia.", ar: "يتداول سوق الفوركس أكثر من 7.5 تريليون دولار يومياً." }
+    },
+    {
+      q: { en: "Which market trades 24 hours, 5 days a week?", es: "Que mercado opera 24 horas, 5 dias a la semana?", zh: "哪个市场每周5天24小时交易?", ru: "Какой рынок работает 24 часа, 5 дней в неделю?", pt: "Qual mercado opera 24 horas, 5 dias por semana?", ar: "أي سوق يتداول 24 ساعة، 5 أيام في الأسبوع؟" },
+      options: {
+        en: ["Forex", "NYSE", "London Stock Exchange", "Tokyo Stock Exchange"],
+        es: ["Forex", "NYSE", "Bolsa de Londres", "Bolsa de Tokio"],
+        zh: ["外汇市场", "纽约证券交易所", "伦敦证券交易所", "东京证券交易所"],
+        ru: ["Форекс", "NYSE", "Лондонская биржа", "Токийская биржа"],
+        pt: ["Forex", "NYSE", "Bolsa de Londres", "Bolsa de Toquio"],
+        ar: ["الفوركس", "بورصة نيويورك", "بورصة لندن", "بورصة طوكيو"]
+      },
+      correct: 0,
+      fact: { en: "Forex opens Sunday evening and closes Friday evening, spanning Sydney, Tokyo, London, and New York sessions.", es: "El forex abre el domingo por la noche y cierra el viernes.", zh: "外汇市场从周日晚间开放到周五晚间，跨越悉尼、东京、伦敦和纽约交易时段。", ru: "Форекс открывается в воскресенье вечером и закрывается в пятницу вечером.", pt: "O Forex abre no domingo a noite e fecha na sexta-feira a noite.", ar: "يفتح الفوركس مساء الأحد ويغلق مساء الجمعة." }
+    },
+    {
+      q: { en: "What is a bull market?", es: "Que es un mercado alcista?", zh: "什么是牛市?", ru: "Что такое бычий рынок?", pt: "O que e um mercado de alta?", ar: "ما هو السوق الصاعد؟" },
+      options: {
+        en: ["Rising prices", "Falling prices", "Stable prices", "Volatile prices"],
+        es: ["Precios en alza", "Precios en caida", "Precios estables", "Precios volatiles"],
+        zh: ["价格上涨", "价格下跌", "价格稳定", "价格波动"],
+        ru: ["Растущие цены", "Падающие цены", "Стабильные цены", "Волатильные цены"],
+        pt: ["Precos em alta", "Precos em queda", "Precos estaveis", "Precos volateis"],
+        ar: ["أسعار صاعدة", "أسعار هابطة", "أسعار مستقرة", "أسعار متقلبة"]
+      },
+      correct: 0,
+      fact: { en: "The term 'bull' comes from the way a bull attacks — thrusting its horns upward.", es: "El termino 'toro' viene de la forma en que un toro ataca — empujando sus cuernos hacia arriba.", zh: "'牛市'这个词来自于公牛攻击的方式——将角向上顶。", ru: "Термин 'бык' происходит от способа атаки быка — подбрасывая рога вверх.", pt: "O termo 'touro' vem da forma como o touro ataca — empurrando os chifres para cima.", ar: "مصطلح 'الثور' يأتي من طريقة هجوم الثور — دفع قرونه للأعلى." }
+    },
+    {
+      q: { en: "What does IPO stand for?", es: "Que significa IPO?", zh: "IPO代表什么?", ru: "Что означает IPO?", pt: "O que significa IPO?", ar: "ماذا يعني IPO؟" },
+      options: {
+        en: ["Initial Public Offering", "Internal Price Order", "Index Portfolio Option", "International Payment Office"],
+        es: ["Oferta Publica Inicial", "Orden de Precio Interno", "Opcion de Cartera de Indice", "Oficina de Pagos Internacional"],
+        zh: ["首次公开募股", "内部价格订单", "指数投资组合期权", "国际支付办公室"],
+        ru: ["Первичное публичное размещение", "Внутренний ценовой ордер", "Индексный портфельный опцион", "Международное платёжное бюро"],
+        pt: ["Oferta Publica Inicial", "Ordem de Preco Interno", "Opcao de Portfolio de Indice", "Escritorio de Pagamento Internacional"],
+        ar: ["الطرح العام الأولي", "أمر سعر داخلي", "خيار محفظة مؤشر", "مكتب دفع دولي"]
+      },
+      correct: 0,
+      fact: { en: "The largest IPO ever was Saudi Aramco in 2019, raising $25.6 billion.", es: "La mayor IPO fue la de Saudi Aramco en 2019, recaudando $25.6 mil millones.", zh: "有史以来最大的IPO是2019年沙特阿美石油的上市，筹集了256亿美元。", ru: "Крупнейшее IPO — Saudi Aramco в 2019 году, привлекшее $25.6 млрд.", pt: "O maior IPO ja realizado foi o da Saudi Aramco em 2019, arrecadando US$ 25,6 bilhoes.", ar: "أكبر طرح عام أولي كان لأرامكو السعودية في 2019 بقيمة 25.6 مليار دولار." }
+    },
+    {
+      q: { en: "Which is the largest stock exchange by market cap?", es: "Cual es la mayor bolsa de valores por capitalizacion?", zh: "按市值计算哪个是最大的证券交易所?", ru: "Какая биржа крупнейшая по капитализации?", pt: "Qual a maior bolsa de valores por capitalizacao?", ar: "ما هي أكبر بورصة من حيث القيمة السوقية؟" },
+      options: {
+        en: ["NYSE", "NASDAQ", "London Stock Exchange", "Shanghai Stock Exchange"],
+        es: ["NYSE", "NASDAQ", "Bolsa de Londres", "Bolsa de Shanghái"],
+        zh: ["纽约证券交易所", "纳斯达克", "伦敦证券交易所", "上海证券交易所"],
+        ru: ["NYSE", "NASDAQ", "Лондонская биржа", "Шанхайская биржа"],
+        pt: ["NYSE", "NASDAQ", "Bolsa de Londres", "Bolsa de Xangai"],
+        ar: ["بورصة نيويورك", "ناسداك", "بورصة لندن", "بورصة شنغهاي"]
+      },
+      correct: 0,
+      fact: { en: "NYSE has over $25 trillion in listed market cap, more than the next 3 exchanges combined.", es: "NYSE tiene mas de $25 billones en capitalizacion, mas que las 3 siguientes bolsas juntas.", zh: "纽约证券交易所上市市值超过25万亿美元，超过排名第二到第四的交易所之和。", ru: "NYSE имеет капитализацию более $25 трлн — больше, чем 3 следующие биржи вместе.", pt: "NYSE tem mais de US$ 25 trilhoes em capitalizacao, mais que as 3 bolsas seguintes juntas.", ar: "بورصة نيويورك لديها أكثر من 25 تريليون دولار من القيمة السوقية المدرجة." }
+    },
+    {
+      q: { en: "What is a derivative?", es: "Que es un derivado financiero?", zh: "什么是衍生品?", ru: "Что такое деривативы?", pt: "O que e um derivativo?", ar: "ما هو المشتق المالي؟" },
+      options: {
+        en: ["Contract based on underlying asset", "A type of stock", "A bank deposit", "A government bond"],
+        es: ["Contrato basado en activo subyacente", "Un tipo de accion", "Un deposito bancario", "Un bono gubernamental"],
+        zh: ["基于基础资产的合约", "一种股票", "银行存款", "政府债券"],
+        ru: ["Контракт на основе базового актива", "Вид акций", "Банковский депозит", "Государственная облигация"],
+        pt: ["Contrato baseado em ativo subjacente", "Um tipo de acao", "Um deposito bancario", "Um titulo do governo"],
+        ar: ["عقد مبني على أصل أساسي", "نوع من الأسهم", "وديعة بنكية", "سند حكومي"]
+      },
+      correct: 0,
+      fact: { en: "The global derivatives market notional value exceeds $600 trillion — dwarfing the world's GDP.", es: "El valor del mercado global de derivados supera los $600 billones.", zh: "全球衍生品市场名义价值超过600万亿美元——远超世界GDP。", ru: "Условная стоимость мирового рынка деривативов превышает $600 трлн.", pt: "O valor do mercado global de derivativos ultrapassa US$ 600 trilhoes.", ar: "القيمة الاسمية لسوق المشتقات العالمي تتجاوز 600 تريليون دولار." }
+    },
+    {
+      q: { en: "What does leverage 10:1 mean?", es: "Que significa apalancamiento 10:1?", zh: "10:1杠杆意味着什么?", ru: "Что означает кредитное плечо 10:1?", pt: "O que significa alavancagem 10:1?", ar: "ماذا تعني الرافعة المالية 10:1؟" },
+      options: {
+        en: ["Control $10 for every $1 of capital", "10% profit guarantee", "10 trades per day", "10 different assets"],
+        es: ["Controlar $10 por cada $1 de capital", "Garantia de ganancia del 10%", "10 operaciones al dia", "10 activos diferentes"],
+        zh: ["每1美元资金控制10美元", "10%利润保证", "每天10笔交易", "10种不同资产"],
+        ru: ["Управление $10 на каждый $1 капитала", "Гарантия 10% прибыли", "10 сделок в день", "10 различных активов"],
+        pt: ["Controlar $10 para cada $1 de capital", "Garantia de lucro de 10%", "10 operacoes por dia", "10 ativos diferentes"],
+        ar: ["التحكم بـ 10 دولارات لكل دولار رأسمال", "ضمان ربح 10%", "10 صفقات يومياً", "10 أصول مختلفة"]
+      },
+      correct: 0,
+      fact: { en: "While leverage amplifies gains, it equally amplifies losses — a key risk management concept.", es: "El apalancamiento amplifica ganancias pero tambien las perdidas.", zh: "杠杆在放大收益的同时也等量放大亏损——这是风险管理的关键概念。", ru: "Кредитное плечо усиливает как прибыль, так и убытки.", pt: "A alavancagem amplifica ganhos, mas tambem amplifica perdas.", ar: "الرافعة المالية تضخم المكاسب والخسائر بنفس القدر." }
+    },
+    {
+      q: { en: "What is a stop-loss order?", es: "Que es una orden stop-loss?", zh: "什么是止损订单?", ru: "Что такое стоп-лосс ордер?", pt: "O que e uma ordem stop-loss?", ar: "ما هو أمر وقف الخسارة؟" },
+      options: {
+        en: ["Automatic sell at a set price to limit loss", "A guaranteed profit order", "An order to buy more shares", "A bank withdrawal"],
+        es: ["Venta automatica a precio fijado para limitar perdidas", "Una orden de ganancia garantizada", "Una orden para comprar mas acciones", "Un retiro bancario"],
+        zh: ["在设定价格自动卖出以限制亏损", "保证利润的订单", "买入更多股票的订单", "银行提款"],
+        ru: ["Автоматическая продажа по заданной цене для ограничения убытков", "Ордер с гарантированной прибылью", "Ордер на покупку акций", "Банковское снятие"],
+        pt: ["Venda automatica a preco definido para limitar perdas", "Uma ordem de lucro garantido", "Uma ordem para comprar mais acoes", "Um saque bancario"],
+        ar: ["بيع تلقائي عند سعر محدد للحد من الخسارة", "أمر ربح مضمون", "أمر لشراء المزيد من الأسهم", "سحب بنكي"]
+      },
+      correct: 0,
+      fact: { en: "Professional traders almost always use stop-loss orders — it's considered essential risk management.", es: "Los traders profesionales casi siempre usan ordenes stop-loss.", zh: "专业交易者几乎总是使用止损订单——这被认为是基本的风险管理。", ru: "Профессиональные трейдеры почти всегда используют стоп-лоссы.", pt: "Traders profissionais quase sempre usam ordens stop-loss.", ar: "المتداولون المحترفون يستخدمون دائماً أوامر وقف الخسارة." }
+    },
+    {
+      q: { en: "Which currency pair is the most traded globally?", es: "Cual es el par de divisas mas negociado?", zh: "全球交易量最大的货币对是哪个?", ru: "Какая валютная пара наиболее торгуемая?", pt: "Qual o par de moedas mais negociado?", ar: "ما هو زوج العملات الأكثر تداولاً عالمياً؟" },
+      options: {
+        en: ["EUR/USD", "GBP/USD", "USD/JPY", "USD/CHF"],
+        es: ["EUR/USD", "GBP/USD", "USD/JPY", "USD/CHF"],
+        zh: ["EUR/USD", "GBP/USD", "USD/JPY", "USD/CHF"],
+        ru: ["EUR/USD", "GBP/USD", "USD/JPY", "USD/CHF"],
+        pt: ["EUR/USD", "GBP/USD", "USD/JPY", "USD/CHF"],
+        ar: ["EUR/USD", "GBP/USD", "USD/JPY", "USD/CHF"]
+      },
+      correct: 0,
+      fact: { en: "EUR/USD accounts for about 23% of all forex trading volume worldwide.", es: "EUR/USD representa aproximadamente el 23% del volumen global de forex.", zh: "EUR/USD约占全球外汇交易量的23%。", ru: "EUR/USD составляет около 23% мирового объёма торговли форекс.", pt: "EUR/USD representa cerca de 23% de todo o volume de trading forex mundial.", ar: "يمثل EUR/USD حوالي 23% من إجمالي حجم تداول الفوركس عالمياً." }
+    },
+    {
+      q: { en: "What is an ETF?", es: "Que es un ETF?", zh: "什么是ETF?", ru: "Что такое ETF?", pt: "O que e um ETF?", ar: "ما هو صندوق ETF؟" },
+      options: {
+        en: ["Exchange-Traded Fund", "Electronic Transfer Fee", "Equity Trading Facility", "External Tax Form"],
+        es: ["Fondo Cotizado en Bolsa", "Tarifa de Transferencia Electronica", "Facilidad de Trading de Acciones", "Formulario de Impuestos Externo"],
+        zh: ["交易所交易基金", "电子转账费", "股票交易设施", "外部税务表格"],
+        ru: ["Биржевой фонд", "Электронный сбор за перевод", "Торговая площадка акций", "Внешняя налоговая форма"],
+        pt: ["Fundo Negociado em Bolsa", "Taxa de Transferencia Eletronica", "Facilidade de Trading de Acoes", "Formulario de Imposto Externo"],
+        ar: ["صندوق متداول في البورصة", "رسوم التحويل الإلكتروني", "منشأة تداول الأسهم", "نموذج ضريبي خارجي"]
+      },
+      correct: 0,
+      fact: { en: "Global ETF assets surpassed $12 trillion in 2024, with thousands of ETFs available worldwide.", es: "Los activos globales en ETFs superaron $12 billones en 2024.", zh: "2024年全球ETF资产超过12万亿美元，全球有数千只ETF可供选择。", ru: "Глобальные активы ETF превысили $12 трлн в 2024 году.", pt: "Os ativos globais em ETFs ultrapassaram US$ 12 trilhoes em 2024.", ar: "تجاوزت أصول صناديق ETF العالمية 12 تريليون دولار في 2024." }
+    },
+    {
+      q: { en: "What is market capitalization?", es: "Que es la capitalizacion de mercado?", zh: "什么是市值?", ru: "Что такое рыночная капитализация?", pt: "O que e capitalizacao de mercado?", ar: "ما هي القيمة السوقية؟" },
+      options: {
+        en: ["Total value of a company's shares", "Company's annual revenue", "Number of employees", "Amount of debt"],
+        es: ["Valor total de las acciones de una empresa", "Ingresos anuales", "Numero de empleados", "Cantidad de deuda"],
+        zh: ["公司股票的总价值", "公司年收入", "员工数量", "债务金额"],
+        ru: ["Общая стоимость акций компании", "Годовой доход компании", "Количество сотрудников", "Объём долга"],
+        pt: ["Valor total das acoes de uma empresa", "Receita anual da empresa", "Numero de funcionarios", "Valor da divida"],
+        ar: ["القيمة الإجمالية لأسهم الشركة", "إيرادات الشركة السنوية", "عدد الموظفين", "مبلغ الديون"]
+      },
+      correct: 0,
+      fact: { en: "Apple became the first company to reach $3 trillion in market cap in 2023.", es: "Apple fue la primera empresa en alcanzar $3 billones en capitalizacion en 2023.", zh: "苹果公司于2023年成为首家市值达到3万亿美元的公司。", ru: "Apple стала первой компанией с капитализацией $3 трлн в 2023 году.", pt: "A Apple se tornou a primeira empresa a atingir US$ 3 trilhoes em capitalizacao em 2023.", ar: "أصبحت آبل أول شركة تصل إلى 3 تريليونات دولار في القيمة السوقية في 2023." }
+    },
+    {
+      q: { en: "What is a candlestick chart?", es: "Que es un grafico de velas?", zh: "什么是K线图?", ru: "Что такое свечной график?", pt: "O que e um grafico de velas?", ar: "ما هو مخطط الشموع اليابانية؟" },
+      options: {
+        en: ["Price visualization showing open, high, low, close", "A type of bar chart for volume", "A pie chart for portfolio", "A line chart for interest rates"],
+        es: ["Visualizacion de precio con apertura, maximo, minimo, cierre", "Un grafico de barras de volumen", "Un grafico circular de cartera", "Un grafico de lineas de tasas"],
+        zh: ["显示开盘、最高、最低、收盘价的价格图表", "成交量柱状图", "投资组合饼图", "利率折线图"],
+        ru: ["Визуализация цены: открытие, максимум, минимум, закрытие", "Гистограмма объёмов", "Круговая диаграмма портфеля", "Линейный график ставок"],
+        pt: ["Visualizacao de preco com abertura, maxima, minima, fechamento", "Um grafico de barras de volume", "Um grafico de pizza de portfolio", "Um grafico de linhas de taxas"],
+        ar: ["تصور سعري يظهر الافتتاح والأعلى والأدنى والإغلاق", "مخطط أعمدة للحجم", "مخطط دائري للمحفظة", "مخطط خطي لأسعار الفائدة"]
+      },
+      correct: 0,
+      fact: { en: "Candlestick charts were invented by Japanese rice traders in the 18th century.", es: "Los graficos de velas fueron inventados por comerciantes de arroz japoneses en el siglo XVIII.", zh: "K线图由18世纪日本大米商人发明。", ru: "Свечные графики были изобретены японскими торговцами рисом в XVIII веке.", pt: "Os graficos de velas foram inventados por comerciantes de arroz japoneses no seculo XVIII.", ar: "اخترع مخططات الشموع تجار الأرز اليابانيون في القرن الثامن عشر." }
+    },
+    {
+      q: { en: "What is diversification in investing?", es: "Que es la diversificacion en inversiones?", zh: "投资中的分散化是什么?", ru: "Что такое диверсификация в инвестировании?", pt: "O que e diversificacao em investimentos?", ar: "ما هو التنويع في الاستثمار؟" },
+      options: {
+        en: ["Spreading investments across different assets", "Investing all in one stock", "Only buying bonds", "Trading daily"],
+        es: ["Distribuir inversiones en diferentes activos", "Invertir todo en una accion", "Solo comprar bonos", "Operar diariamente"],
+        zh: ["将投资分散到不同资产中", "全部投资一只股票", "只买债券", "每日交易"],
+        ru: ["Распределение инвестиций по разным активам", "Инвестирование всего в одну акцию", "Покупка только облигаций", "Ежедневная торговля"],
+        pt: ["Distribuir investimentos em diferentes ativos", "Investir tudo em uma acao", "Comprar apenas titulos", "Negociar diariamente"],
+        ar: ["توزيع الاستثمارات عبر أصول مختلفة", "الاستثمار كله في سهم واحد", "شراء السندات فقط", "التداول يومياً"]
+      },
+      correct: 0,
+      fact: { en: "Harry Markowitz won the Nobel Prize in 1990 for his Modern Portfolio Theory on diversification.", es: "Harry Markowitz gano el Nobel en 1990 por su Teoria Moderna de Portafolio.", zh: "哈里·马科维茨因其现代投资组合理论于1990年获得诺贝尔奖。", ru: "Гарри Марковиц получил Нобелевскую премию в 1990 году за Современную портфельную теорию.", pt: "Harry Markowitz ganhou o Nobel em 1990 pela Teoria Moderna de Portfolio sobre diversificacao.", ar: "فاز هاري ماركويتز بجائزة نوبل في 1990 عن نظرية المحفظة الحديثة." }
+    },
+    {
+      q: { en: "What does P/E ratio measure?", es: "Que mide la relacion P/E?", zh: "市盈率(P/E)衡量什么?", ru: "Что измеряет коэффициент P/E?", pt: "O que a relacao P/L mede?", ar: "ماذا يقيس مؤشر السعر/الأرباح P/E؟" },
+      options: {
+        en: ["Price relative to earnings per share", "Profit vs expenses", "Portfolio efficiency", "Payment to equity ratio"],
+        es: ["Precio relativo a ganancias por accion", "Beneficio vs gastos", "Eficiencia de cartera", "Relacion pago-capital"],
+        zh: ["股价与每股收益的比率", "利润与费用", "投资组合效率", "支付权益比"],
+        ru: ["Цена относительно прибыли на акцию", "Прибыль против расходов", "Эффективность портфеля", "Соотношение платежей к капиталу"],
+        pt: ["Preco relativo ao lucro por acao", "Lucro vs despesas", "Eficiencia do portfolio", "Relacao pagamento-capital"],
+        ar: ["السعر بالنسبة لأرباح السهم", "الربح مقابل المصاريف", "كفاءة المحفظة", "نسبة الدفع إلى حقوق الملكية"]
+      },
+      correct: 0,
+      fact: { en: "A high P/E may mean a stock is overvalued or that investors expect high future growth.", es: "Un P/E alto puede significar que una accion esta sobrevaluada o que se espera alto crecimiento.", zh: "高市盈率可能意味着股票被高估或投资者预期高增长。", ru: "Высокий P/E может означать переоценку акции или ожидания высокого роста.", pt: "Um P/L alto pode significar que uma acao esta sobrevalorizada ou que se espera alto crescimento.", ar: "قد يعني ارتفاع P/E أن السهم مبالغ في تقييمه أو أن المستثمرين يتوقعون نمواً مرتفعاً." }
+    },
+    {
+      q: { en: "What is a bear market?", es: "Que es un mercado bajista?", zh: "什么是熊市?", ru: "Что такое медвежий рынок?", pt: "O que e um mercado de baixa?", ar: "ما هو السوق الهابط؟" },
+      options: {
+        en: ["A decline of 20% or more from recent highs", "Any market with low volume", "A market that only trades commodities", "A market closed on weekends"],
+        es: ["Una caida del 20% o mas desde maximos recientes", "Cualquier mercado con bajo volumen", "Un mercado que solo opera commodities", "Un mercado cerrado los fines de semana"],
+        zh: ["从近期高点下跌20%或以上", "任何低成交量市场", "只交易商品的市场", "周末关闭的市场"],
+        ru: ["Падение на 20% и более от недавних максимумов", "Любой рынок с низким объёмом", "Рынок только сырьевых товаров", "Рынок, закрытый на выходные"],
+        pt: ["Uma queda de 20% ou mais das maximas recentes", "Qualquer mercado com baixo volume", "Um mercado que so negocia commodities", "Um mercado fechado nos fins de semana"],
+        ar: ["انخفاض 20% أو أكثر من أعلى المستويات الأخيرة", "أي سوق بحجم تداول منخفض", "سوق يتداول السلع فقط", "سوق مغلق في عطلة نهاية الأسبوع"]
+      },
+      correct: 0,
+      fact: { en: "The average bear market lasts about 9.6 months, while bull markets last about 2.7 years on average.", es: "El mercado bajista promedio dura 9.6 meses; el alcista dura 2.7 anos.", zh: "熊市平均持续约9.6个月，而牛市平均持续约2.7年。", ru: "Средний медвежий рынок длится 9.6 месяцев, а бычий — около 2.7 лет.", pt: "O mercado de baixa medio dura 9.6 meses; o de alta dura 2.7 anos.", ar: "يستمر السوق الهابط المتوسط حوالي 9.6 أشهر بينما يستمر السوق الصاعد حوالي 2.7 سنة." }
+    },
+    {
+      q: { en: "What is a spread in trading?", es: "Que es un spread en trading?", zh: "交易中的价差是什么?", ru: "Что такое спред в трейдинге?", pt: "O que e um spread no trading?", ar: "ما هو السبريد في التداول؟" },
+      options: {
+        en: ["Difference between bid and ask price", "A type of chart pattern", "The daily price range", "A trading strategy name"],
+        es: ["Diferencia entre precio de compra y venta", "Un tipo de patron grafico", "El rango de precios diario", "Nombre de una estrategia de trading"],
+        zh: ["买入价和卖出价之间的差价", "一种图表形态", "每日价格范围", "一种交易策略名称"],
+        ru: ["Разница между ценой покупки и продажи", "Тип графического паттерна", "Дневной диапазон цен", "Название торговой стратегии"],
+        pt: ["Diferenca entre preco de compra e venda", "Um tipo de padrao grafico", "A faixa de precos diaria", "Nome de uma estrategia de trading"],
+        ar: ["الفرق بين سعر الشراء والبيع", "نوع من أنماط الرسم البياني", "نطاق السعر اليومي", "اسم استراتيجية تداول"]
+      },
+      correct: 0,
+      fact: { en: "Tighter spreads usually indicate higher liquidity and lower trading costs.", es: "Spreads mas estrechos indican mayor liquidez y menores costos.", zh: "更窄的价差通常表示更高的流动性和更低的交易成本。", ru: "Более узкие спреды обычно означают более высокую ликвидность и более низкие затраты.", pt: "Spreads mais estreitos geralmente indicam maior liquidez e menores custos.", ar: "السبريد الأضيق يشير عادة إلى سيولة أعلى وتكاليف تداول أقل." }
+    }
+  ];
+
+  function shuffle(arr) {
+    const a = [...arr];
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+
+  let questions = shuffle(allQuestions).slice(0, 12);
+  let current = 0;
+  let score = 0;
+
+  function renderQuestion() {
+    const q = questions[current];
+    document.getElementById('quiz-question').textContent = q.q[lang] || q.q.en;
+    document.getElementById('quiz-progress').textContent = `Q ${current + 1}/12`;
+    document.getElementById('quiz-feedback').style.display = 'none';
+    document.getElementById('quiz-question-area').style.display = 'block';
+
+    const optionsDiv = document.getElementById('quiz-options');
+    optionsDiv.innerHTML = '';
+    const opts = q.options[lang] || q.options.en;
+    opts.forEach((opt, i) => {
+      const btn = document.createElement('button');
+      btn.className = 'quiz-option-btn';
+      btn.textContent = opt;
+      btn.addEventListener('click', () => handleAnswer(i));
+      optionsDiv.appendChild(btn);
+    });
+  }
+
+  function handleAnswer(idx) {
+    const q = questions[current];
+    const isCorrect = idx === q.correct;
+    if (isCorrect) score++;
+    document.getElementById('quiz-score').textContent = score;
+    document.getElementById('quiz-question-area').style.display = 'none';
+    document.getElementById('quiz-feedback').style.display = 'block';
+    document.getElementById('quiz-feedback-text').textContent = isCorrect ? l.correct : l.wrong;
+    document.getElementById('quiz-feedback-text').className = isCorrect ? 'feedback-correct' : 'feedback-wrong';
+    document.getElementById('quiz-funfact').textContent = q.fact[lang] || q.fact.en;
+
+    if (current >= 11) {
+      document.getElementById('quiz-next-btn').style.display = 'none';
+    }
+  }
+
+  document.getElementById('quiz-next-btn').addEventListener('click', () => {
+    current++;
+    if (current < 12) {
+      renderQuestion();
+    } else {
+      document.getElementById('quiz-feedback').style.display = 'none';
+      document.getElementById('quiz-result').style.display = 'block';
+      document.getElementById('result-score-text').textContent = `${score} ${l.of} 12`;
+    }
+  });
+
+  document.getElementById('quiz-play-again').addEventListener('click', () => {
+    window.location.reload();
+  });
+
+  renderQuestion();
+</script>
+
+<style>
+  .quiz-section {
+    margin: 40px 0;
+  }
+  .quiz-container {
+    background: linear-gradient(135deg, rgba(16,185,129,0.08) 0%, rgba(13,148,136,0.08) 100%);
+    border: 1px solid rgba(16,185,129,0.2);
+    border-radius: 16px;
+    padding: 32px;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  .quiz-title {
+    text-align: center;
+    font-size: 1.6rem;
+    color: #10b981;
+    margin-bottom: 20px;
+  }
+  .quiz-score-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    background: rgba(8,10,16,0.6);
+    border-radius: 8px;
+    margin-bottom: 24px;
+    color: #94a3b8;
+    font-size: 0.95rem;
+  }
+  .quiz-score-bar strong {
+    color: #10b981;
+    font-size: 1.1rem;
+  }
+  .quiz-progress {
+    color: #0d9488;
+    font-weight: 600;
+  }
+  .quiz-question {
+    font-size: 1.2rem;
+    color: #e2e8f0;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 500;
+  }
+  .quiz-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .quiz-option-btn {
+    background: rgba(8,10,16,0.7);
+    color: #e2e8f0;
+    border: 1px solid rgba(16,185,129,0.2);
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: center;
+  }
+  .quiz-option-btn:hover {
+    border-color: #10b981;
+    background: rgba(16,185,129,0.15);
+    color: #10b981;
+    transform: translateY(-1px);
+  }
+  .quiz-feedback {
+    text-align: center;
+    padding: 20px;
+  }
+  .feedback-correct {
+    color: #10b981;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .feedback-wrong {
+    color: #ef4444;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .quiz-funfact {
+    color: #94a3b8;
+    font-size: 0.9rem;
+    margin: 16px 0;
+    padding: 12px;
+    background: rgba(8,10,16,0.5);
+    border-radius: 8px;
+    border-left: 3px solid #0d9488;
+    text-align: left;
+  }
+  .funfact-label {
+    color: #0d9488;
+    font-weight: 600;
+  }
+  .quiz-next-btn,
+  .quiz-play-again-btn {
+    background: linear-gradient(135deg, #10b981, #0d9488);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 32px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 16px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .quiz-next-btn:hover,
+  .quiz-play-again-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(16,185,129,0.4);
+  }
+  .quiz-result {
+    text-align: center;
+    padding: 20px;
+  }
+  .result-title {
+    color: #94a3b8;
+    font-size: 1rem;
+    margin-bottom: 8px;
+  }
+  .result-score {
+    color: #10b981;
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+  @media (max-width: 640px) {
+    .quiz-options {
+      grid-template-columns: 1fr;
+    }
+    .quiz-container {
+      padding: 20px;
+    }
+  }
+</style>
